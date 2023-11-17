@@ -1,5 +1,6 @@
 const resource_url =
-  "https://7jyejv1s0m.execute-api.us-east-1.amazonaws.com/assignment/listings";
+  "https://z8tnv5jj23.execute-api.us-east-1.amazonaws.com/addrental/property";
+
 const form = document.getElementById("create-property-form");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -21,6 +22,7 @@ form.addEventListener("submit", (e) => {
    * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
    */
   const plainFormData = Object.fromEntries(formData.entries());
+  console.log(plainFormData)
   const fetchOptions = {
     method: "POST",
     mode: "cors",
@@ -30,5 +32,5 @@ form.addEventListener("submit", (e) => {
     body: JSON.stringify(plainFormData),
   };
   fetch(resource_url, fetchOptions);
-  form.reset();
+    
 });
